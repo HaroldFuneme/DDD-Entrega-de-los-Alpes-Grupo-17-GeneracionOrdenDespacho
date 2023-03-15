@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "72ceafbf-3165-4f8b-b7fe-6be8e9d57340",
+		"name": "BFFProgramarDespacho",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10368565"
+	},
+	"item": [
+		{
+			"name": "https://bffprogramardespacho.azurewebsites.net/ProgramarDespacho",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"eventId\": 202300001,\r\n  \"eventName\": \"InventarioVerificado\",\r\n  \"eventDataFormat\": \"JSON\",\r\n  \"payload\": {\r\n    \"ordenId\": \"477b5166-3cf5-46f1-a6ed-cf532a825bfc\",\r\n    \"user\": \"destinos@acme4.com\",\r\n    \"user_addres\": \"Call 45 45 90\",\r\n    \"items_bodegas\": {\r\n      \"item1\": {\r\n        \"addres_bodega\": \"carr 2 34 56\"\r\n      }\r\n    },\r\n    \"items_centros\": {\r\n      \"item2\": {\r\n        \"addres_centros\": \"carr 2 40 98\"\r\n      },\r\n      \"item3\": {\r\n        \"addres_centros\": \"call 45 14 67\"\r\n      }\r\n    }\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://bffprogramardespacho.azurewebsites.net/ProgramarDespacho",
+					"protocol": "https",
+					"host": [
+						"bffprogramardespacho",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"ProgramarDespacho"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

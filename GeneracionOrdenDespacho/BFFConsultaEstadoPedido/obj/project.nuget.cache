@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "MzfBFO46javQkFqIHi8PGF+gLsZG/vzb3vqb5N6torMq7Vdf2NM+I3jBW77iaad/lcn1JbIO17W85QaVIeQb3Q==",
+  "success": true,
+  "projectFilePath": "F:\\MISO\\5 - No Monolíticas\\Código\\DDD-Entrega-de-los-Alpes-Grupo-17-GeneracionOrdenDespacho\\GeneracionOrdenDespacho\\BFFConsultaEstadoPedido\\BFFConsultaEstadoPedido.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\oscar\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+  ],
+  "logs": []
+}

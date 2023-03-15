@@ -11,7 +11,6 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("dotnet-GeneracionOrdenDespacho-c67db6b8-64af-40df-9814-45d217c1bcba")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("GeneracionOrdenDespacho")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]

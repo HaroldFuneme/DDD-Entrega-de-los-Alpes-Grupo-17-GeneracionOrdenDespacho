@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ActiveDebugProfile>Docker</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>F:\MISO\5 - No Monolíticas\Código\DDD-Entrega-de-los-Alpes-Grupo-17-GeneracionOrdenDespacho\GeneracionOrdenDespacho\BFFProgramarDespacho\Properties\PublishProfiles\GeneracionOrdenDespacho.pubxml</NameOfLastUsedPublishProfile>
+  </PropertyGroup>
+</Project>
