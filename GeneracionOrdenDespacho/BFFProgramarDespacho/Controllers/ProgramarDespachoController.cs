@@ -22,9 +22,9 @@ namespace BFFProgramarDespacho.Controllers
             return true;
         }
         [HttpPost]
-        public async Task<string> Post([FromBody] EventoInventarioVerificado comando)
+        public async Task<string> Post([FromBody] EventoOrdenCreada comando)
         {
-            var messageId = await HelperPulsarBroker.SendMessage(_configuration["Pulsar:Uri"], _configuration["Pulsar:TopicoOrdenesDespacho"], _configuration["Pulsar:Subscription"], comando);
+            var messageId = await HelperPulsarBroker.SendMessage(_configuration["Pulsar:Uri"], _configuration["Pulsar:topico-evento-orden-a"], _configuration["Pulsar:Subscription"], comando);
 
             return messageId;
         }

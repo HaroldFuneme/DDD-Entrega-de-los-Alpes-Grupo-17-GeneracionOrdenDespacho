@@ -1,15 +1,10 @@
 ﻿using DotPulsar;
 using DotPulsar.Extensions;
+using GeneracionOrdenDespacho.EventHandlers;
 using GeneracionOrdenDespacho.ViewModels;
-using System;
 using System.Buffers;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Text.Json;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
 
 namespace GeneracionOrdenDespacho
 {
@@ -17,13 +12,13 @@ namespace GeneracionOrdenDespacho
     {
         private static IConfiguration _configuration;
 
-        internal static async void ConsumeMessages<T>(IConfiguration configuration)//string serviceUrl, string topic, string subscription, string databaseConnection)
+        internal static async void ConsumeMessages<T>(IConfiguration configuration, string nombreTopico)//string serviceUrl, string topic, string subscription, string databaseConnection)
         {
             _configuration = configuration;
             var client = PulsarClient.Builder().ServiceUrl(new Uri(_configuration["Pulsar:Uri"])).Build();
             var consumer = client.NewConsumer()
                      .SubscriptionName(_configuration["Pulsar:Subscription"])
-                     .Topic(configuration["Pulsar:TopicoOrdenesDespacho"])
+                     .Topic(nombreTopico)
                      .Create();
 
             await foreach (var message in consumer.Messages())

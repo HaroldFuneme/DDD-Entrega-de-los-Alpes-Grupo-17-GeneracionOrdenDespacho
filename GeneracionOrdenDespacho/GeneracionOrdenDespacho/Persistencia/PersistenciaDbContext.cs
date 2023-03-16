@@ -1,10 +1,5 @@
 ﻿using GeneracionOrdenDespacho.Persistencia.Modelos;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeneracionOrdenDespacho.Persistencia
 {
@@ -18,6 +13,7 @@ namespace GeneracionOrdenDespacho.Persistencia
         }
         public DbSet<Orden> Ordenes { get; set; }
         public DbSet<DespachoUltimaMilla> DespachosUltimaMilla { get; set; }
+        public DbSet<SagaLog> SagaLog { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

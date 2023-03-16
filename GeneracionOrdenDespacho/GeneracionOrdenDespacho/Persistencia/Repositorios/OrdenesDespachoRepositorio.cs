@@ -22,42 +22,56 @@ namespace GeneracionOrdenDespacho.Persistencia.Repositorios
 
         public (bool guardado, List<DespachoUltimaMilla> despachos) AgregarOrden(PayloadEventoInventarioVerificado eventoInventario)
         {
-            var orden = new Orden
+            if (_db.Ordenes.Find(eventoInventario.ordenId) == null)
             {
-                OrdenId = eventoInventario.ordenId,
-                DireccionUsuario = eventoInventario.user_addres,
-                Usuario = eventoInventario.user
-            };
-            _db.Ordenes.Add(orden);
-
-            var random = new Random();
-            var retorno = new List<DespachoUltimaMilla>();
-            foreach (var bodega in eventoInventario.items_bodegas)
-            {
-                var despachoBodega = new DespachoUltimaMilla
+                var orden = new Orden
                 {
-                    OrdenId = orden.OrdenId,
-                    IdentificadorDelivery = _listadoDeliveries[random.Next(_listadoDeliveries.Count() - 1)],
-                    NombreBodega = bodega.Key,
-                    Items = JsonSerializer.Serialize(bodega.Value)
+                    OrdenId = eventoInventario.ordenId,
+                    DireccionUsuario = eventoInventario.user_addres,
+                    Usuario = eventoInventario.user
                 };
-                _db.DespachosUltimaMilla.Add(despachoBodega);
-                retorno.Add(despachoBodega);
-            }
-            try
-            {
-                if (_db.SaveChanges() > 0)
+                _db.Ordenes.Add(orden);
+
+                var random = new Random();
+                var retorno = new List<DespachoUltimaMilla>();
+                if (eventoInventario.items_bodegas != null)
                 {
-                    return (true, retorno);
+                    foreach (var bodega in eventoInventario.items_bodegas)
+                    {
+                        var despachoBodega = new DespachoUltimaMilla
+                        {
+                            OrdenId = orden.OrdenId,
+                            IdentificadorDelivery = _listadoDeliveries[random.Next(_listadoDeliveries.Count() - 1)],
+                            NombreBodega = bodega.Key,
+                            Items = JsonSerializer.Serialize(bodega.Value)
+                        };
+                        _db.DespachosUltimaMilla.Add(despachoBodega);
+                        retorno.Add(despachoBodega);
+                    }
+                    try
+                    {
+                        if (_db.SaveChanges() > 0)
+                        {
+                            return (true, retorno);
+                        }
+                        else
+                        {
+                            return (false, null);
+                        }
+                    }
+                    catch
+                    {
+                        return (false, null);
+                    }
                 }
                 else
                 {
-                    return (false, null);
+                    return (true, null);
                 }
             }
-            catch
+            else
             {
-                return (false, null);
+                return (true, null);
             }
         }
     }

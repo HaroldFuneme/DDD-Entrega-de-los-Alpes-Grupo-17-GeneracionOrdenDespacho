@@ -4,4 +4,7 @@
     <ActiveDebugProfile>Docker</ActiveDebugProfile>
     <NameOfLastUsedPublishProfile>F:\MISO\5 - No Monolíticas\Código\DDD-Entrega-de-los-Alpes-Grupo-17-GeneracionOrdenDespacho\GeneracionOrdenDespacho\BFFProgramarDespacho\Properties\PublishProfiles\GeneracionOrdenDespacho.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>
